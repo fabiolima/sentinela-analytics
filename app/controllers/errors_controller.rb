@@ -14,6 +14,6 @@ class ErrorsController < ApplicationController
   private
 
   def error_params
-    params.require(:error).permit(:message, :stack, :domain, :filename, :referrer, :href, :lineno, :colno, :date, :user_id)
+    params.require(:error).permit(:source, :mobile, :platform, :app_version, :user_agent, :width, :height, :message, :stack, :domain, :filename, :referrer, :href, :lineno, :colno, :date, :user_id)
   end
 end

@@ -15,7 +15,14 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_27_185605) do
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
 
-  create_table "errors", force: :cascade do |t|
+  create_table "errors", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "source"
+    t.boolean "mobile"
+    t.string "platform"
+    t.string "app_version"
+    t.string "user_agent"
+    t.integer "width"
+    t.integer "height"
     t.string "message"
     t.string "stack"
     t.string "domain"
